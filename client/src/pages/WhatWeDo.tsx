@@ -1,24 +1,25 @@
 import { Link } from "wouter";
-import { 
-  AlertTriangle, 
-  Users, 
-  Globe, 
-  ShieldCheck, 
-  UserCheck, 
+import {
+  AlertTriangle,
+  Users,
+  Globe,
+  ShieldCheck,
+  UserCheck,
   Droplets,
   ArrowRight,
   Mail
 } from "lucide-react";
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import Base from "@/components/layout/Base";
 
 export default function WhatWeDo() {
   const programs = [
@@ -61,13 +62,13 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <div className="w-full">
+    <Base>
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/what-we-do-hero.jpg" 
-            alt="What We Do Hero" 
+          <img
+            src="/images/what-we-do-hero.jpg"
+            alt="What We Do Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
@@ -99,8 +100,8 @@ export default function WhatWeDo() {
           <main className="lg:col-span-3">
             <div className="prose prose-lg max-w-none mb-12">
               <p className="text-xl text-muted-foreground leading-relaxed">
-                With over a century of experience and a dedicated community of 16,000+ members and volunteers, 
-                Thembi Community Initiative acts locally and connects globally to deliver critical support 
+                With over a century of experience and a dedicated community of 16,000+ members and volunteers,
+                Thembi Community Initiative acts locally and connects globally to deliver critical support
                 when it's needed most.
               </p>
             </div>
@@ -142,9 +143,9 @@ export default function WhatWeDo() {
         <div className="container">
           <div className="bg-card rounded-2xl overflow-hidden shadow-xl flex flex-col md:row-reverse md:flex-row">
             <div className="md:w-1/2">
-              <img 
-                src="/images/everyone-always.jpg" 
-                alt="Community Support" 
+              <img
+                src="/images/everyone-always.jpg"
+                alt="Community Support"
                 className="w-full h-full object-cover min-h-[300px]"
               />
             </div>
@@ -194,6 +195,7 @@ export default function WhatWeDo() {
           </p>
         </div>
       </section>
-    </div>
+    </Base>
   );
 }
+

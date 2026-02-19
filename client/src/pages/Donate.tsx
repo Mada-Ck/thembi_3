@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Heart, AlertCircle } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import Base from "@/components/layout/Base";
 
 export default function Donate() {
   const [donationType, setDonationType] = useState<"specific_program" | "general" | "child_sponsorship" | "in_kind">("general");
@@ -73,7 +74,7 @@ export default function Donate() {
   };
 
   return (
-    <div className="w-full">
+    <Base>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-accent">
         <div className="container">
@@ -112,11 +113,10 @@ export default function Donate() {
                           key={option.value}
                           type="button"
                           onClick={() => setDonationType(option.value as any)}
-                          className={`p-4 rounded-lg border-2 transition-smooth text-left font-medium ${
-                            donationType === option.value
+                          className={`p-4 rounded-lg border-2 transition-smooth text-left font-medium ${donationType === option.value
                               ? "border-primary bg-primary/10 text-primary"
                               : "border-border hover:border-primary text-foreground"
-                          }`}
+                            }`}
                         >
                           {option.label}
                         </button>
@@ -158,11 +158,10 @@ export default function Donate() {
                             setAmount(amt);
                             setCustomAmount("");
                           }}
-                          className={`p-3 rounded-lg border-2 transition-smooth font-semibold ${
-                            amount === amt && !customAmount
+                          className={`p-3 rounded-lg border-2 transition-smooth font-semibold ${amount === amt && !customAmount
                               ? "border-primary bg-primary text-primary-foreground"
                               : "border-border hover:border-primary text-foreground"
-                          }`}
+                            }`}
                         >
                           ${amt}
                         </button>
@@ -315,6 +314,7 @@ export default function Donate() {
           </div>
         </div>
       </section>
-    </div>
+    </Base>
   );
 }
+

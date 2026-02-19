@@ -1,27 +1,28 @@
 import { Link } from "wouter";
-import { 
-  FileText, 
-  ShieldCheck, 
-  Users, 
-  LayoutDashboard, 
+import {
+  FileText,
+  ShieldCheck,
+  Users,
+  LayoutDashboard,
   ChevronRight,
   ChevronDown
 } from "lucide-react";
-import { 
-  Accordion, 
-  AccordionContent, 
-  AccordionItem, 
-  AccordionTrigger 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger
 } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Base from "@/components/layout/Base";
 
 export default function Governance() {
   const sidebarItems = [
     { label: "About Us", href: "/about" },
     { label: "What We Do", href: "/what-we-do" },
-    { 
-      label: "Governance", 
-      href: "/governance", 
+    {
+      label: "Governance",
+      href: "/governance",
       active: true,
       submenu: [
         { label: "Donors and Supporters", href: "/donors" },
@@ -46,13 +47,13 @@ export default function Governance() {
   ];
 
   return (
-    <div className="w-full">
+    <Base>
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/governance-hero.jpg" 
-            alt="Governance Hero" 
+          <img
+            src="/images/governance-hero.jpg"
+            alt="Governance Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
@@ -75,11 +76,10 @@ export default function Governance() {
               <nav className="flex flex-col space-y-2">
                 {sidebarItems.map((item, index) => (
                   <div key={index} className="space-y-1">
-                    <Link 
-                      href={item.href} 
-                      className={`flex items-center justify-between p-2 rounded-lg transition-colors ${
-                        item.active ? "bg-primary text-primary-foreground font-bold" : "text-muted-foreground hover:bg-muted hover:text-primary"
-                      }`}
+                    <Link
+                      href={item.href}
+                      className={`flex items-center justify-between p-2 rounded-lg transition-colors ${item.active ? "bg-primary text-primary-foreground font-bold" : "text-muted-foreground hover:bg-muted hover:text-primary"
+                        }`}
                     >
                       {item.label}
                       {item.submenu && <ChevronDown className="w-4 h-4" />}
@@ -87,9 +87,9 @@ export default function Governance() {
                     {item.submenu && (
                       <div className="pl-4 space-y-1 mt-1">
                         {item.submenu.map((sub, idx) => (
-                          <Link 
-                            key={idx} 
-                            href={sub.href} 
+                          <Link
+                            key={idx}
+                            href={sub.href}
                             className="block p-2 text-sm text-muted-foreground hover:text-primary transition-colors border-l border-muted-foreground/20 ml-2"
                           >
                             {sub.label}
@@ -113,25 +113,25 @@ export default function Governance() {
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
                 <p>
-                  Strong governance is the backbone of Thembi Community Initiative (TCI), 
-                  ensuring integrity, transparency, and accountability in all we do. 
-                  Our leadership upholds ethical standards, financial stewardship, 
+                  Strong governance is the backbone of Thembi Community Initiative (TCI),
+                  ensuring integrity, transparency, and accountability in all we do.
+                  Our leadership upholds ethical standards, financial stewardship,
                   and community-driven decisions.
                 </p>
                 <p>
-                  TCI's Board of Directors provides strategic oversight, aligning 
-                  programs with our mission of empowerment and health. Working with 
-                  a skilled management team, we ensure efficient implementation 
+                  TCI's Board of Directors provides strategic oversight, aligning
+                  programs with our mission of empowerment and health. Working with
+                  a skilled management team, we ensure efficient implementation
                   and lasting impact.
                 </p>
                 <p>
-                  Financial transparency is key. We conduct annual audits, align 
-                  budgets with priorities, and report regularly to stakeholders, 
+                  Financial transparency is key. We conduct annual audits, align
+                  budgets with priorities, and report regularly to stakeholders,
                   building trust with our donors and partners.
                 </p>
                 <p>
-                  Community voices shape our governance. By involving beneficiaries, 
-                  we create sustainable, needs-based solutions that empower 
+                  Community voices shape our governance. By involving beneficiaries,
+                  we create sustainable, needs-based solutions that empower
                   communities to thrive.
                 </p>
               </div>
@@ -188,6 +188,7 @@ export default function Governance() {
           </main>
         </div>
       </div>
-    </div>
+    </Base>
   );
 }
+

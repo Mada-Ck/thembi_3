@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { toast } from "sonner";
+import Base from "@/components/layout/Base";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -47,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="w-full">
+    <Base>
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary to-accent">
         <div className="container">
@@ -262,6 +263,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </Base>
   );
 }
+

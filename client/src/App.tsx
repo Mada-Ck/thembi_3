@@ -4,10 +4,9 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Navigation from "./components/Navigation";
-import Footer from "@/components/Footer";
-import Home from "./pages/Home";
 
+// Main Page Imports
+import Home from "./pages/Home";
 import About from "./pages/About";
 import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
@@ -15,34 +14,94 @@ import Volunteer from "./pages/Volunteer";
 import Dashboard from "./pages/Dashboard";
 import ClinicalTracker from "./pages/ClinicalTracker";
 import WhatWeDo from "./pages/WhatWeDo";
+import Health from "./pages/Health";
+import Education from "./pages/Education";
+import YouthEmpowerment from "./pages/YouthEmpowerment";
+import CommunityEmpowerment from "./pages/CommunityEmpowerment";
+import Livelihood from "./pages/Livelihood";
+import Corporate from "./pages/Corporate";
+import Fundraise from "./pages/Fundraise";
 import Governance from "./pages/Governance";
 import BoardMembers from "./pages/BoardMembers";
+import BoardCommittees from "./pages/BoardCommittees";
+import ExecutiveTeam from "./pages/ExecutiveTeam";
+import Donors from "./pages/Donors";
+
+// HIV/AIDS Page Imports
+import AboutHiv from "./pages/HIV/AboutHiv";
+import BasicFactsAboutHiv from "./pages/HIV/BasicFactsAboutHiv";
+import MalawiHivStatistics from "./pages/HIV/MalawiHivStatistics";
+import WorldHivStatistics from "./pages/HIV/WorldHivStatistics";
+
+// Services Page Imports
+import ChildClinic from "./pages/Services/ChildClinic";
+import GetHelp from "./pages/Services/GetHelp";
+import HivServices from "./pages/Services/HivServices";
+import JoinTeenClub from "./pages/Services/JoinTeenClub";
+import Pmtct from "./pages/Services/Pmtct";
+
+// Blog Page Imports
+import BlogList from "./pages/Legal/BlogList";
+import BlogPostDetail from "./pages/Legal/BlogPostDetail";
+
+// Legal Page Imports
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import TermsOfUse from "./pages/Legal/TermsOfUse";
 
 function Router() {
-  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/about"} component={About} />
-      <Route path={"/what-we-do"} component={WhatWeDo} />
-      <Route path={"/governance"} component={Governance} />
-      <Route path={"/board-members"} component={BoardMembers} />
-      <Route path={"/donate"} component={Donate} />
-      <Route path={"/contact"} component={Contact} />
-      <Route path={"/volunteer"} component={Volunteer} />
-      <Route path={"/dashboard"} component={Dashboard} />
-      <Route path={"/dashboard/clinic"} component={ClinicalTracker} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
+      {/* Home and Main Pages */}
+      <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/what-we-do" component={WhatWeDo} />
+      <Route path="/health" component={Health} />
+      <Route path="/education" component={Education} />
+      <Route path="/youth-empowerment" component={YouthEmpowerment} />
+      <Route path="/community-empowerment" component={CommunityEmpowerment} />
+      <Route path="/livelihood" component={Livelihood} />
+      <Route path="/corporate" component={Corporate} />
+      <Route path="/fundraise" component={Fundraise} />
+      <Route path="/governance" component={Governance} />
+      <Route path="/board-members" component={BoardMembers} />
+      <Route path="/board-committees" component={BoardCommittees} />
+      <Route path="/executive-team" component={ExecutiveTeam} />
+      <Route path="/donors" component={Donors} />
+      <Route path="/donate" component={Donate} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/volunteer" component={Volunteer} />
+
+      {/* HIV/AIDS Information */}
+      <Route path="/about-hiv" component={AboutHiv} />
+      <Route path="/basic-facts" component={BasicFactsAboutHiv} />
+      <Route path="/malawi-stats" component={MalawiHivStatistics} />
+      <Route path="/world-stats" component={WorldHivStatistics} />
+
+      {/* Community Services */}
+      <Route path="/child-clinic" component={ChildClinic} />
+      <Route path="/get-help" component={GetHelp} />
+      <Route path="/hiv-services" component={HivServices} />
+      <Route path="/teen-club" component={JoinTeenClub} />
+      <Route path="/pmtct" component={Pmtct} />
+
+      {/* Blog & News */}
+      <Route path="/blog" component={BlogList} />
+      <Route path="/blog/:slug" component={BlogPostDetail} />
+
+      {/* Legal Pages */}
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfUse} />
+
+      {/* Dashboard & Tools */}
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/dashboard/clinic" component={ClinicalTracker} />
+
+      {/* Fallback */}
+      <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>
   );
 }
-
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
   return (
@@ -53,11 +112,9 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <Navigation />
           <main className="min-h-screen">
             <Router />
           </main>
-          <Footer />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
@@ -65,3 +122,4 @@ function App() {
 }
 
 export default App;
+

@@ -22,6 +22,8 @@ export default function Navigation() {
         { label: "What We Do", href: "/what-we-do" },
         { label: "Governance", href: "/governance" },
         { label: "Board Members", href: "/board-members" },
+        { label: "Board Committees", href: "/board-committees" },
+        { label: "Executive Team", href: "/executive-team" },
         { label: "Donors & Supporters", href: "/donors" },
       ],
     },
@@ -56,9 +58,9 @@ export default function Navigation() {
       href: "/hiv-aids",
       submenu: [
         { label: "About HIV/AIDS", href: "/about-hiv" },
-        { label: "Malawi Statistics", href: "/malawi-statistics" },
+        { label: "Malawi Statistics", href: "/malawi-stats" },
         { label: "Basic Facts", href: "/basic-facts" },
-        { label: "World Statistics", href: "/world-statistics" },
+        { label: "World Statistics", href: "/world-stats" },
       ],
     },
     {
@@ -186,9 +188,8 @@ export default function Navigation() {
                   >
                     {item.label}
                     <svg
-                      className={`w-4 h-4 transition-transform ${
-                        openDropdown === item.label ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform ${openDropdown === item.label ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

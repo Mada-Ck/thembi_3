@@ -1,20 +1,21 @@
 import { Link } from "wouter";
-import { 
-  Users, 
+import {
+  Users,
   ChevronDown,
   Mail,
   Linkedin
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import Base from "@/components/layout/Base";
 
 export default function BoardMembers() {
   const sidebarItems = [
     { label: "About Us", href: "/about" },
     { label: "What We Do", href: "/what-we-do" },
-    { 
-      label: "Governance", 
-      href: "/governance", 
+    {
+      label: "Governance",
+      href: "/governance",
       active: true,
       submenu: [
         { label: "Donors and Supporters", href: "/donors" },
@@ -64,13 +65,13 @@ export default function BoardMembers() {
   ];
 
   return (
-    <div className="w-full">
+    <Base>
       {/* Hero Section */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/board-members-hero.jpg" 
-            alt="Board Members Hero" 
+          <img
+            src="/images/board-members-hero.jpg"
+            alt="Board Members Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
@@ -93,11 +94,10 @@ export default function BoardMembers() {
               <nav className="flex flex-col space-y-2">
                 {sidebarItems.map((item, index) => (
                   <div key={index} className="space-y-1">
-                    <Link 
-                      href={item.href} 
-                      className={`flex items-center justify-between p-2 rounded-lg transition-colors ${
-                        item.active && item.href === "/governance" ? "bg-primary text-primary-foreground font-bold" : "text-muted-foreground hover:bg-muted hover:text-primary"
-                      }`}
+                    <Link
+                      href={item.href}
+                      className={`flex items-center justify-between p-2 rounded-lg transition-colors ${item.active && item.href === "/governance" ? "bg-primary text-primary-foreground font-bold" : "text-muted-foreground hover:bg-muted hover:text-primary"
+                        }`}
                     >
                       {item.label}
                       {item.submenu && <ChevronDown className="w-4 h-4" />}
@@ -105,12 +105,11 @@ export default function BoardMembers() {
                     {item.submenu && (
                       <div className="pl-4 space-y-1 mt-1">
                         {item.submenu.map((sub, idx) => (
-                          <Link 
-                            key={idx} 
-                            href={sub.href} 
-                            className={`block p-2 text-sm transition-colors border-l border-muted-foreground/20 ml-2 ${
-                              sub.active ? "text-primary font-bold border-primary" : "text-muted-foreground hover:text-primary"
-                            }`}
+                          <Link
+                            key={idx}
+                            href={sub.href}
+                            className={`block p-2 text-sm transition-colors border-l border-muted-foreground/20 ml-2 ${sub.active ? "text-primary font-bold border-primary" : "text-muted-foreground hover:text-primary"
+                              }`}
                           >
                             {sub.label}
                           </Link>
@@ -131,8 +130,8 @@ export default function BoardMembers() {
                 Our Board
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                TCI's Board of Directors provides strategic oversight, ensuring 
-                our programs align with our mission to empower communities 
+                TCI's Board of Directors provides strategic oversight, ensuring
+                our programs align with our mission to empower communities
                 and improve lives.
               </p>
 
@@ -169,6 +168,7 @@ export default function BoardMembers() {
           </main>
         </div>
       </div>
-    </div>
+    </Base>
   );
 }
+

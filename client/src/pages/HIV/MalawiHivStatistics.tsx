@@ -1,0 +1,97 @@
+import React from 'react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const MalawiHivStatistics: React.FC = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <div className="page-container">
+    {/* Sidebar */}
+    <aside className="about-sidebar" role="navigation" aria-label="HIV/AIDS Navigation">
+        <h3>In this section</h3>
+        <ul>
+            <li><a href="/main:about_hiv">About HIV/AIDS</a></li>
+            <li><a href="/main:malawi_statistics" className="active">Malawi Statistics</a></li>
+            <li><a href="/main:basic_facts">Basic Facts</a></li>
+            <li><a href="/main:world_hiv_statistics">World Statistics</a></li>
+        </ul>
+    </aside>
+
+    {/* Hero Section */}
+    <div className="hero" style="background-image: url('/assets/images/malawi_hiv_hero.jpg');">
+        <div className="hero-content">
+            <h1>HIV/AIDS Statistics in Malawi</h1>
+            <p>Key data from the National AIDS Commission (2023)</p>
+        </div>
+    </div>
+
+    {/* Introduction Section */}
+    <div className="stats-section" id="section-intro">
+        <h1>Malawi’s Progress in the Fight Against HIV/AIDS</h1>
+        <p>Malawi has made significant strides in combating HIV/AIDS, reducing new infections by 76% since 2010 through a coordinated national response. In 2023, the country recorded 13,875 new HIV infections across all ages, with 991,600 people living with HIV. Progress toward the <a href="https://www.unaids.org/en/resources/959595" target="_blank">UNAIDS 95-95-95 targets</a> shows 95% of PLHIV knowing their status (941,020), 91% of those diagnosed receiving treatment (927,310), and 87% of those on treatment achieving viral suppression (852,301).</p>
+    </div>
+
+    {/* Statistics Section */}
+    <div className="stats-section" id="section-stats">
+        <h1>HIV/AIDS in Malawi: Key Statistics (2023)</h1>
+        <dl>
+            <dt>People Living with HIV (PLHIV):</dt>
+            <dd>In 2023, there were 991,600 people living with HIV across all ages.</dd>
+            <dt>New HIV Infections:</dt>
+            <dd>In 2023, Malawi recorded 13,875 new HIV infections across all ages.</dd>
+            <dt>People on ART:</dt>
+            <dd>A total of 927,310 PLHIV were taking the life-prolonging Anti-Retroviral drugs (ARVs) by December 2023.</dd>
+            <dt>Viral Suppression:</dt>
+            <dd>A total of 852,301 PLHIV on ART had their viral load suppressed by December 2023.</dd>
+            <dt>AIDS Deaths:</dt>
+            <dd>A total of 11,265 people across all ages died of AIDS in 2023.</dd>
+            <dt>Progress Towards UNAIDS 95-95-95 Targets:</dt>
+            <dd>95% of PLHIV know their status (941,020), 91% of those diagnosed receive treatment (927,310), and 87% of those on treatment achieve viral suppression (852,301).</dd>
+        </dl>
+        <div id="unaids-chart"></div>
+    </div>
+
+    {/* Key Demographics Section */}
+    <div className="stats-section" id="section-demographics">
+        <h2>Key Demographics (2022)</h2>
+        <dl>
+            <dt>Men who have sex with men (MSM):</dt>
+            <dd>Approximately 5% (650) of 13,000 new HIV diagnoses were among men who reported male-to-male sexual contact.</dd>
+            <dt>Transgender People:</dt>
+            <dd>Transgender men accounted for less than 1% (under 130), and transgender women approximately 1% (130) of new HIV diagnoses.</dd>
+            <dt>Women:</dt>
+            <dd>Approximately 60% of PLHIV are women, accounting for 60% of HIV diagnoses, though they comprise 51% of the population.</dd>
+            <dt>Youth:</dt>
+            <dd>Youth aged 13-24 accounted for 20% (2,600), and those aged 25-34 for 35% (4,550) of new HIV diagnoses.</dd>
+            <dt>Key Populations:</dt>
+            <dd>Higher HIV prevalence among females, female sex workers, MSM, transgender individuals, and people who inject drugs.</dd>
+        </dl>
+    </div>
+
+    {/* Challenges Section */}
+    <div className="stats-section" id="section-challenges">
+        <h2>Challenges and Focus Areas</h2>
+        <div className="challenges-content">
+            <div className="image-container">
+                <img src="/assets/images/adolescent_girls_hiv.jpg" alt="Adolescent Girls and HIV" loading="lazy">
+            </div>
+            <div className="text-container">
+                <div className="challenge-item">
+                    <strong>Focus on Prevention:</strong> Malawi prioritizes services for adolescent girls, young women, and workplace HIV programs to address higher risks.
+                </div>
+                <div className="challenge-item">
+                    <strong>Challenges Remain:</strong> Adolescents, girls, young women, and key populations face persistent risks, requiring ongoing efforts.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default MalawiHivStatistics;

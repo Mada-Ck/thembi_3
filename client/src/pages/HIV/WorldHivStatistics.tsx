@@ -1,0 +1,112 @@
+import React from 'react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const WorldHivStatistics: React.FC = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <div className="page-container">
+    {/* Sidebar */}
+    <aside className="about-sidebar" role="navigation" aria-label="HIV/AIDS Navigation">
+        <h3>In this section</h3>
+        <ul>
+            <li><a href="/main:about_hiv">About HIV/AIDS</a></li>
+            <li><a href="/main:malawi_statistics">Malawi Statistics</a></li>
+            <li><a href="/main:basic_facts">Basic Facts</a></li>
+            <li><a href="/main:world_hiv_statistics" className="active">World Statistics</a></li>
+        </ul>
+    </aside>
+
+    {/* Hero Section */}
+    <div className="hero" style="background-image: url('/assets/images/malawi_hiv_hero.jpg');">
+        <div className="hero-content">
+            <h1>World HIV Statistics</h1>
+            <p>Key data on the global HIV epidemic as of 2022.</p>
+        </div>
+    </div>
+
+    {/* Overview Section */}
+    <div className="stats-section">
+        <h1>Global HIV/AIDS Overview</h1>
+        <p>Approximately 39 million people worldwide are living with HIV. In 2022, 86% knew their status, while 5.5 million did not. Since the pandemic’s start, 85.6 million have acquired HIV, and 40.4 million have died of AIDS-related illnesses.</p>
+    </div>
+
+    {/* Key Statistics Section */}
+    <div className="stats-section">
+        <h2>Key Global Statistics (2022)</h2>
+        <dl>
+            <dt>New Infections:</dt>
+            <dd>1.3 million new HIV infections, a 59% decrease from 3.2 million in 1995, with the largest drops in sub-Saharan Africa.</dd>
+            <dt>AIDS-Related Deaths:</dt>
+            <dd>630,000 deaths, down from 650,000 in 2021, with 260,000 in eastern and southern Africa.</dd>
+            <dt>Access to Treatment:</dt>
+            <dd>29.8 million (76.4% of PLWH) on antiretroviral therapy (ART), up from 7.7 million in 2010; 86% know their status, 89% of those access ART, and 93% of those are virally suppressed.</dd>
+            <dt>Access to PrEP:</dt>
+            <dd>2.5 million people in 86 countries used oral PrEP, though usage lags behind need in most regions.</dd>
+        </dl>
+    </div>
+
+    {/* Populations Section */}
+    <div className="stats-section">
+        <h2>HIV Among Key Populations</h2>
+        <p>Key population programs remain underfunded globally.</p>
+        <ul>
+            <li><strong>MSM:</strong> 11x higher HIV prevalence than the general population (15-49).</li>
+            <li><strong>People who inject drugs:</strong> 7x higher prevalence.</li>
+            <li><strong>Sex workers:</strong> 4x higher prevalence.</li>
+            <li><strong>Transgender people:</strong> 14x higher prevalence.</li>
+            <li><strong>Incarcerated individuals:</strong> 7.2x more likely to have HIV.</li>
+        </ul>
+        <p><strong>Adolescent Girls and Young Women:</strong> 4,000 new infections weekly (3,100 in sub-Saharan Africa); 63% of new infections in sub-Saharan Africa were among women and girls.</p>
+        <p><strong>Children:</strong> 130,000 new infections, 84,000 AIDS-related deaths; 57% on ART, with 46% virally suppressed.</p>
+    </div>
+
+    {/* Regional Section */}
+    <div className="stats-section">
+        <h2>Regional Highlights (2022)</h2>
+        <h3>Eastern and Southern Africa</h3>
+        <p>20.8 million PLWH, 500,000 new infections, 260,000 deaths, 83% on ART.</p>
+        <h3>Asia and the Pacific</h3>
+        <p>6.5 million PLWH, 300,000 new infections, 150,000 deaths, 65% on ART.</p>
+        <h3>Western and Central Africa</h3>
+        <p>4.8 million PLWH, 160,000 new infections, 120,000 deaths, 78% on ART.</p>
+    </div>
+
+    {/* Image and Text Section */}
+    <div className="stats-section">
+        <h2>Treatment and Impact</h2>
+        <div className="image-text-content">
+            <div className="image-container">
+                <img src="/assets/images/adolescent_girls_hiv.jpg" alt="HIV Treatment and Impact" loading="lazy">
+            </div>
+            <div className="text-container">
+                <div className="text-item">
+                    <h3>Access to Treatment</h3>
+                    <p>29.8 million people on ART in 2022, averting 20.8 million deaths over three decades.</p>
+                </div>
+                <div className="text-item">
+                    <h3>Regional Impact</h3>
+                    <p>Eastern and southern Africa has 20.8 million PLWH and the highest AIDS-related deaths.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {/* Resources Section */}
+    <div className="stats-section">
+        <h2>Learn More</h2>
+        <div className="resources-item">
+            <p>Explore more statistics and resources to understand the global HIV epidemic and how to contribute.</p>
+            <a href="/main:about_hiv">Resources</a>
+        </div>
+    </div>
+</div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default WorldHivStatistics;

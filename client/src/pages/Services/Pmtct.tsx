@@ -1,0 +1,99 @@
+import React from 'react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+
+const Pmtct: React.FC = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <section className="about-hero">
+        <img src="/assets/images/pmtct-hero.jpg" alt="PMTCT Hero Image" className="about-hero-image" loading="lazy">
+        <div className="about-hero-text animate-hero">
+            <h1>PMTCT & Support for HIV+ Women</h1>
+            <p>Dedicated Programs for Mothers and Children.</p>
+        </div>
+    </section>
+
+    <div className="get-help-content">
+        <aside className="about-sidebar" role="navigation" aria-label="Get Help Navigation">
+            <h3>In this section</h3>
+            <ul>
+                <li><a href="/main:child_clinic">Child Clinic</a></li>
+                <li><a href="/main:hiv_services">HIV Community Services</a></li>
+                <li><a href="/main:join_teen_club">Teen Club</a></li>
+                <li><a href="/main:pmtct" className="active">PMTCT & HIV+ Women</a></li>
+            </ul>
+        </aside>
+
+        <section className="main-content">
+            <h2>PMTCT and Support for HIV+ Women</h2>
+            <p>The Thembi Community Initiative offers comprehensive programs to prevent mother-to-child transmission (PMTCT) of HIV and provide holistic support for HIV-positive women. Our services empower mothers, protect infants, and strengthen families.</p>
+
+            <h3>What is PMTCT?</h3>
+            <p>Prevention of Mother-to-Child Transmission (PMTCT) is a set of interventions designed to prevent HIV transmission from an HIV-positive mother to her child during pregnancy, childbirth, or breastfeeding. Our PMTCT program ensures access to testing, treatment, and support for healthy outcomes.</p>
+
+            <h3>Our Services</h3>
+            <ul>
+                <li><strong>Antiretroviral Therapy (ART):</strong> Providing ART to HIV-positive mothers to reduce viral load and prevent transmission.</li>
+                <li><strong>Counseling and Support:</strong> Offering individual and group counseling to address emotional and social challenges.</li>
+                <li><strong>Infant Feeding Guidance:</strong> Educating mothers on safe infant feeding practices to minimize HIV transmission risks.</li>
+                <li><strong>Partner Testing and Treatment:</strong> Encouraging HIV testing and linkage to care for partners to support family health.</li>
+                <li><strong>Early Infant Diagnosis:</strong> Conducting early HIV testing for infants to ensure timely intervention if needed.</li>
+            </ul>
+
+            <div className="info-card-row">
+                <div className="info-card">
+                    <img src="/assets/images/pmtct-art.jpg" alt="Antiretroviral Therapy" loading="lazy">
+                    <h3>ART Access</h3>
+                    <p>Ensuring mothers receive life-saving treatment.</p>
+                </div>
+                <div className="info-card">
+                    <img src="/assets/images/pmtct-counseling.jpg" alt="Counseling Support" loading="lazy">
+                    <h3>Counseling</h3>
+                    <p>Supporting emotional and mental well-being.</p>
+                </div>
+            </div>
+
+            <h3>Support for HIV+ Women</h3>
+            <p>Beyond PMTCT, we offer support groups, mental health services, and economic empowerment programs to help HIV-positive women thrive. Our peer-led initiatives foster community and resilience.</p>
+
+            <h3>How to Access Services</h3>
+            <p>Visit our office at [Address] or call [Phone Number] to enroll in our PMTCT program. Services are free and confidential. Contact us for eligibility details or to schedule a visit.</p>
+            <a href="/main:contact" className="button">Contact Us</a>
+
+            <h3>Success Stories</h3>
+            <p>With consent, we share anonymized stories of mothers who have benefited from our programs, highlighting healthy births and empowered lives. [Add specific stories here.]</p>
+
+            <h3>Frequently Asked Questions (FAQs)</h3>
+            <div className="faq-container">
+                <details className="faq-item">
+                    <summary className="toggle-header" data-toggle="faq-1">What is the most effective way to prevent mother-to-child transmission of HIV? <span className="toggle-icon">▼</span></summary>
+                    <div id="faq-1" className="toggle-content">
+                        <p>The most effective way is through a combination of antiretroviral therapy (ART) for the mother, safe delivery practices, and appropriate infant feeding. ART reduces the mother’s viral load, significantly lowering transmission risk.</p>
+                    </div>
+                </details>
+                <details className="faq-item">
+                    <summary className="toggle-header" data-toggle="faq-2">Can I breastfeed my baby? <span className="toggle-icon">▼</span></summary>
+                    <div id="faq-2" className="toggle-content">
+                        <p>With proper ART and guidance, breastfeeding can be safe. We provide counseling on exclusive breastfeeding and other options to minimize risks. Consult our team for personalized advice.</p>
+                    </div>
+                </details>
+                <details className="faq-item">
+                    <summary className="toggle-header" data-toggle="faq-3">When should I visit the clinic? <span className="toggle-icon">▼</span></summary>
+                    <div id="faq-3" className="toggle-content">
+                        <p>Visit as soon as you know you’re pregnant or suspect you may be HIV-positive. Early intervention is key. We recommend regular check-ups throughout pregnancy and after delivery.</p>
+                    </div>
+                </details>
+            </div>
+
+            <p>Learn more about our <a href="/main:child_clinic">Child Clinic services</a> or <a href="/main:hiv_services">HIV Community Services</a>.</p>
+        </section>
+    </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default Pmtct;

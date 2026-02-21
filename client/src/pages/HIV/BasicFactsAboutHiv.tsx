@@ -1,23 +1,16 @@
 import React from 'react';
 import Base from '../../components/layout/Base';
+import HivSidebar from '../../components/layout/HivSidebar';
 import { Link } from 'wouter';
 
 const BasicFactsAboutHiv: React.FC = () => {
     return (
         <Base>
             <div className="container mx-auto px-4 py-8">
-                <div className="flex flex-col lg:flex-row gap-8">
+                <div className="flex flex-col lg:flex-row gap-12">
                     {/* Sidebar */}
-                    <aside className="w-full lg:w-1/4" role="navigation" aria-label="HIV/AIDS Navigation">
-                        <div className="bg-card border border-border rounded-lg p-6 sticky top-24">
-                            <h3 className="font-bold mb-4">In this section</h3>
-                            <ul className="space-y-2">
-                                <li><Link href="/about-hiv">About HIV/AIDS</Link></li>
-                                <li><Link href="/malawi-statistics">Malawi Statistics</Link></li>
-                                <li><Link href="/basic-facts" className="text-primary font-medium">Basic Facts</Link></li>
-                                <li><Link href="/world-statistics">World Statistics</Link></li>
-                            </ul>
-                        </div>
+                    <aside className="w-full lg:w-1/4">
+                        <HivSidebar />
                     </aside>
 
                     {/* Content */}

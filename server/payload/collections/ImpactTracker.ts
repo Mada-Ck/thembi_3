@@ -5,6 +5,9 @@ export const ImpactTracker: CollectionConfig = {
   admin: {
     useAsTitle: 'programName',
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'programName',

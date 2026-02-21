@@ -105,3 +105,13 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Project specific temporary files
+git_*.txt
+*_check.txt
+*_check_*.txt
+output.txt
+drizzle_gen*.txt
+temp_key*
+db_test_pw.ts
+

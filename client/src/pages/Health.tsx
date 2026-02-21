@@ -9,21 +9,21 @@ const Health: React.FC = () => {
     const focusAreas = [
         {
             icon: Activity,
-            title: "HIV/AIDS Prevention and Care",
-            description: "Comprehensive prevention, testing, and ARV treatment support, with specialized care for pediatric cases and expectant mothers.",
-            image: "/assets/images/hiv-aids.jpg"
+            title: "HIV/AIDS & Viral Load Support",
+            description: "Intensive treatment monitoring, viral load follow-up, and ARV adherence coaching for pediatric and adult cases.",
+            image: "/assets/images/hiv-monitoring.jpg"
         },
         {
             icon: Heart,
-            title: "Child and Maternal Health",
-            description: "Essential healthcare services including immunizations, prenatal consultations, and postnatal nutrition support for rural families.",
-            image: "/assets/images/child-health.jpg"
+            title: "Sexual Reproductive Health",
+            description: "Comprehensive SRH trainings and services for youth and adults, focusing on prevention, testing, and rights.",
+            image: "/assets/images/srh-training.jpg"
         },
         {
             icon: PlusCircle,
-            title: "Community Outreach",
-            description: "Mobile clinics and community health workers bringing basic medical care to the most remote villages in Chitipa.",
-            image: "/assets/images/community-health.jpg"
+            title: "Child Care & Nutrition",
+            description: "Household-level nutrition trainings and child care guidance to combat stunting and improve infant survival.",
+            image: "/assets/images/nutrition.jpg"
         }
     ];
 

@@ -9,21 +9,21 @@ const Livelihood: React.FC = () => {
     const initiatives = [
         {
             icon: Sprout,
-            title: "Sustainable Agriculture",
-            description: "Training in climate-smart farming techniques, providing high-quality seeds, and establishing community grain banks.",
-            image: "/assets/images/skills-training.jpg"
+            title: "Sustainable Agriculture & Nutrition",
+            description: "Climate-smart farming techniques, high-quality seeds, and nutrition-focused agricultural training to ensure food security.",
+            image: "/assets/images/agriculture-nutrition.jpg"
         },
         {
             icon: Coins,
-            title: "Microfinance & Village Savings",
-            description: "Supporting Village Savings and Loan Associations (VSLA) to provide community members with access to small-scale capital.",
-            image: "/assets/images/microfinance.jpg"
+            title: "Emergency Support & Maize",
+            description: "Direct maize distributions and community grain banks to support vulnerable households during critical hunger seasons.",
+            image: "/assets/images/maize-distribution.jpg"
         },
         {
             icon: Hammer,
-            title: "Vocational Skills",
-            description: "Practical training in tailoring, carpentry, and masonry to provide youth and women with marketable trade skills.",
-            image: "/assets/images/carpentry.jpg"
+            title: "Vocational & Life Skills",
+            description: "Practical training in tailoring and carpentry, combined with life skills that foster long-term economic independence.",
+            image: "/assets/images/vocational-training.jpg"
         }
     ];
 
@@ -48,10 +48,10 @@ const Livelihood: React.FC = () => {
             </section>
 
             {/* Main Content */}
-            <section className="py-20 text-center md:text-left">
+            <section className="py-20">
                 <div className="container">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-20">
-                        <div className="lg:col-span-2 prose prose-lg max-w-none">
+                        <div className="lg:col-span-2 prose prose-lg max-w-none text-center md:text-left">
                             <h2 className="text-3xl font-bold text-foreground mb-6">Economic Independence</h2>
                             <p>
                                 In rural Chitipa, many families depend on subsistence farming, which is highly vulnerable to climate shocks. TCI's livelihood programs aim to diversify income sources and build financial resilience.
@@ -61,12 +61,115 @@ const Livelihood: React.FC = () => {
                             </p>
                         </div>
                         <div className="flex flex-col justify-center">
-                            <div className="bg-muted p-8 rounded-2xl border border-border">
+                            <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10">
                                 <TrendingUp className="w-12 h-12 text-primary mb-4 mx-auto md:mx-0" />
-                                <h3 className="text-xl font-bold mb-2">Measurable Growth</h3>
-                                <p className="text-muted-foreground text-sm">
-                                    Starting with small-scale interventions, we help families scale their enterprises into sustainable businesses that serve local markets.
+                                <h3 className="text-xl font-bold mb-2">Grow with Purpose</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                    Our agricultural initiatives do more than provide food; they provide a lifeline to the most vulnerable members of our community.
                                 </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Farming & Nutrition Section */}
+                    <div className="bg-muted/50 rounded-3xl p-8 md:p-12 border border-border mb-20">
+                        <div className="flex flex-col lg:flex-row gap-12">
+                            <div className="flex-1 space-y-8">
+                                <div>
+                                    <h2 className="text-3xl font-bold mb-4">Our Farms & Agricultural Impact</h2>
+                                    <p className="text-muted-foreground leading-relaxed">
+                                        TCI operates several farm plots to ensure a steady supply of nutritious food for our support programs. These farms serve as both production hubs and demonstration sites for sustainable techniques.
+                                    </p>
+                                </div>
+
+                                <div className="grid sm:grid-cols-2 gap-6">
+                                    <div className="bg-background p-6 rounded-2xl shadow-sm border border-border">
+                                        <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
+                                            <TrendingUp className="w-4 h-4" />
+                                            Katutula Farm (Livestock)
+                                        </h4>
+                                        <p className="text-xs text-muted-foreground mb-3 italic">Empowering 2021 - 2023 Progress</p>
+                                        <ul className="space-y-2 text-sm text-muted-foreground">
+                                            <li className="flex justify-between"><span>Goats Distributed</span> <span className="font-bold text-foreground">131</span></li>
+                                            <li className="flex justify-between"><span>Pigs Distributed</span> <span className="font-bold text-foreground">119</span></li>
+                                            <li className="flex justify-between"><span>Chickens & Eggs</span> <span className="font-bold text-foreground">1000+</span></li>
+                                        </ul>
+                                    </div>
+                                    <div className="bg-background p-6 rounded-2xl shadow-sm border border-border">
+                                        <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
+                                            <Sprout className="w-4 h-4" />
+                                            Namatubi Farm (Maize)
+                                        </h4>
+                                        <p className="text-xs text-muted-foreground mb-3 italic">Total Cultivated Area: 16.25 Acres</p>
+                                        <ul className="space-y-2 text-sm text-muted-foreground">
+                                            <li className="flex justify-between"><span>Main Maize Plot</span> <span className="font-bold text-foreground">11 Acres</span></li>
+                                            <li className="flex justify-between"><span>Sub Plots</span> <span className="font-bold text-foreground">5.25 Acres</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="aspect-video bg-muted rounded-2xl overflow-hidden border border-border group relative">
+                                    <img
+                                        src="/assets/images/tci_livestock_farm.webp"
+                                        alt="TCI Livestock Farm"
+                                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                                        onError={(e) => {
+                                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=1200';
+                                        }}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                        <p className="text-white text-sm font-medium">Supporting children's health through sustainable farming.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="lg:w-1/3 space-y-8">
+                                <div className="bg-primary text-primary-foreground p-8 rounded-2xl shadow-xl flex flex-col justify-center relative overflow-hidden">
+                                    <div className="relative z-10">
+                                        <h3 className="text-2xl font-bold mb-4">Feeding the Future</h3>
+                                        <p className="text-primary-foreground/90 text-sm leading-relaxed mb-6">
+                                            All produce from our farms is dedicated to our <strong>Nutrition Support Program</strong>. This includes:
+                                        </p>
+                                        <ul className="space-y-3">
+                                            <li className="flex items-center gap-3 text-sm">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                                                Pass-on program for sustainable incomes
+                                            </li>
+                                            <li className="flex items-center gap-3 text-sm">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                                                Nutritional rations for malnourished children
+                                            </li>
+                                            <li className="flex items-center gap-3 text-sm">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                                                Vital support for teens on ART program
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+                                </div>
+
+                                {/* Success Story Card */}
+                                <Card className="border-primary/20 bg-primary/5 overflow-hidden">
+                                    <div className="aspect-video bg-muted relative">
+                                        <img
+                                            src="/assets/images/youth_success_story.webp"
+                                            alt="Youth Success Story"
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?auto=format&fit=crop&q=80&w=800';
+                                            }}
+                                        />
+                                        <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">
+                                            Success Story
+                                        </div>
+                                    </div>
+                                    <CardContent className="p-6">
+                                        <h4 className="font-bold text-lg mb-2 text-primary">From 1 to 15 Goats</h4>
+                                        <p className="text-sm text-muted-foreground leading-relaxed italic">
+                                            "I started with just one goat from TCI. Through the pass-on program and hard work, I now have over 15 goats and can fully support my family's needs."
+                                        </p>
+                                        <p className="text-xs font-bold text-primary mt-3">— Local Youth Participant</p>
+                                    </CardContent>
+                                </Card>
                             </div>
                         </div>
                     </div>
@@ -104,6 +207,7 @@ const Livelihood: React.FC = () => {
                     </div>
                 </div>
             </section>
+
 
             {/* Microfinance Spotlight */}
             <section className="py-20 bg-muted">

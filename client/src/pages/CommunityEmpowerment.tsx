@@ -9,9 +9,9 @@ const CommunityEmpowerment: React.FC = () => {
     const initiatives = [
         {
             icon: Users,
-            title: "Leadership Development",
-            description: "Training local leaders in governance, project management, and advocacy to lead their own community development initiatives.",
-            image: "/assets/images/community-leadership.jpg"
+            title: "Outreach & Sensitisation",
+            description: "Mobilizing communities through village-to-village outreach and sensitisations on health, rights, and sustainable practices.",
+            image: "/assets/images/community-outreach.jpg"
         },
         {
             icon: Lightbulb,
@@ -21,9 +21,9 @@ const CommunityEmpowerment: React.FC = () => {
         },
         {
             icon: Handshake,
-            title: "Stakeholder Engagement",
-            description: "Facilitating dialogues between community members, local government, and traditional leaders to foster collaboration.",
-            image: "/assets/images/stakeholder.jpg"
+            title: "Leadership & Governance",
+            description: "Facilitating dialogues between community members, local government, and traditional leaders to foster local ownership.",
+            image: "/assets/images/leadership-governance.jpg"
         }
     ];
 

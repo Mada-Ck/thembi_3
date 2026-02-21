@@ -1,27 +1,45 @@
 import React from 'react';
 import { Link } from "wouter";
 import Base from "@/components/layout/Base";
+import AboutSidebar from "@/components/layout/AboutSidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ExecutiveTeam: React.FC = () => {
     const team = [
         {
-            name: "Jane Doe",
-            role: "Chief Executive Officer",
-            description: "Guides TCI with a vision for sustainable impact and community transformation.",
-            image: "/assets/images/executive/jane-doe.jpg"
+            name: "Mphatso Chikhwaza Ngurube",
+            role: "Executive Director",
+            email: "thembicommunityinitiatives@gmail.com",
+            description: "Leading TCI's mission and strategic growth to empower communities across Malawi.",
+            image: "/assets/images/executive/mphatso.jpg"
         },
         {
-            name: "John Smith",
-            role: "Chief Operating Officer",
-            description: "Oversees program execution and ensures operational excellence across all initiatives.",
-            image: "/assets/images/executive/john-smith.jpg"
+            name: "Patrick Ziba",
+            role: "Director of Programs",
+            email: "zibapatrick@yahoo.com",
+            description: "Overseeing the implementation and impact of our core community programs.",
+            image: "/assets/images/executive/patrick.jpg"
         },
         {
-            name: "Mary Jones",
-            role: "Chief Financial Officer",
-            description: "Manages financial strategy, ensuring transparency and accountability to our donors.",
-            image: "/assets/images/executive/mary-jones.jpg"
+            name: "Madalitso Kalua",
+            role: "Head of Finance and Administration",
+            email: "madalitsokalua@gmail.com",
+            description: "Ensuring financial transparency and operational efficiency within the organization.",
+            image: "/assets/images/executive/madalitso.jpg"
+        },
+        {
+            name: "Bester Msowoya",
+            role: "Cordinating Health",
+            email: "bestermsowoya@gmail.com",
+            description: "Managing and coordinating health initiatives to improve community well-being.",
+            image: "/assets/images/executive/bester.jpg"
+        },
+        {
+            name: "Yamiko Mhone",
+            role: "Health Officer",
+            email: "kajalangako@gmail.com",
+            description: "Supporting health program delivery and community outreach efforts.",
+            image: "/assets/images/executive/yamiko.jpg"
         }
     ];
 
@@ -44,18 +62,7 @@ const ExecutiveTeam: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
                     {/* Sidebar */}
                     <aside className="lg:col-span-1">
-                        <div className="sticky top-24 space-y-4">
-                            <h3 className="text-xl font-bold border-b pb-2">In this section</h3>
-                            <nav className="flex flex-col space-y-2">
-                                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-                                <Link href="/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link>
-                                <Link href="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link>
-                                <Link href="/board-members" className="text-muted-foreground hover:text-primary transition-colors">Board Members</Link>
-                                <Link href="/board-committees" className="text-muted-foreground hover:text-primary transition-colors">Board Committees</Link>
-                                <Link href="/executive-team" className="text-primary font-bold">Executive Team</Link>
-                                <Link href="/donors" className="text-muted-foreground hover:text-primary transition-colors">Donors & Supporters</Link>
-                            </nav>
-                        </div>
+                        <AboutSidebar />
                     </aside>
 
                     {/* Content Area */}
@@ -84,8 +91,16 @@ const ExecutiveTeam: React.FC = () => {
                                         <CardTitle className="text-lg">{member.name}</CardTitle>
                                         <p className="text-primary font-medium text-sm">{member.role}</p>
                                     </CardHeader>
-                                    <CardContent>
+                                    <CardContent className="space-y-4">
                                         <p className="text-muted-foreground text-sm">{member.description}</p>
+                                        {member.email && (
+                                            <div className="pt-2 border-t border-border">
+                                                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider mb-1">Contact</p>
+                                                <a href={`mailto:${member.email}`} className="text-sm text-primary hover:underline break-all">
+                                                    {member.email}
+                                                </a>
+                                            </div>
+                                        )}
                                     </CardContent>
                                 </Card>
                             ))}

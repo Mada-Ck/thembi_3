@@ -78,9 +78,9 @@ export default function Navigation() {
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2 px-4 text-sm">
         <div className="container flex justify-between items-center">
-          <a href="/admin" className="hover:underline">
+          <Link href="/login" className="hover:underline text-primary-foreground">
             Login
-          </a>
+          </Link>
           <Link href="/contact" className="hover:underline">
             Contact Us
           </Link>
@@ -90,11 +90,12 @@ export default function Navigation() {
       {/* Main Navigation */}
       <nav className="bg-background border-b border-border sticky top-0 z-50 shadow-soft">
         <div className="container flex justify-between items-center py-4">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">T</span>
-            </div>
+            <img
+              src="/assets/images/thembi-logo.png"
+              alt="Thembi Community Initiative"
+              className="h-12 w-auto object-contain"
+            />
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-primary">Thembi</h1>
               <p className="text-xs text-muted-foreground">A Promise of Hope</p>

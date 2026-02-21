@@ -8,23 +8,9 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Base from "@/components/layout/Base";
+import AboutSidebar from "@/components/layout/AboutSidebar";
 
 export default function BoardMembers() {
-  const sidebarItems = [
-    { label: "About Us", href: "/about" },
-    { label: "What We Do", href: "/what-we-do" },
-    {
-      label: "Governance",
-      href: "/governance",
-      active: true,
-      submenu: [
-        { label: "Donors and Supporters", href: "/donors" },
-        { label: "Board Members", href: "/board-members", active: true },
-        { label: "Board Committees", href: "/board-committees" },
-        { label: "CEO and Executive Team", href: "/executive-team" },
-      ]
-    },
-  ];
 
   const boardMembers = [
     {
@@ -89,37 +75,7 @@ export default function BoardMembers() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Sidebar */}
           <aside className="lg:col-span-1">
-            <div className="sticky top-24 space-y-4">
-              <h3 className="text-xl font-bold border-b pb-2">In this section</h3>
-              <nav className="flex flex-col space-y-2">
-                {sidebarItems.map((item, index) => (
-                  <div key={index} className="space-y-1">
-                    <Link
-                      href={item.href}
-                      className={`flex items-center justify-between p-2 rounded-lg transition-colors ${item.active && item.href === "/governance" ? "bg-primary text-primary-foreground font-bold" : "text-muted-foreground hover:bg-muted hover:text-primary"
-                        }`}
-                    >
-                      {item.label}
-                      {item.submenu && <ChevronDown className="w-4 h-4" />}
-                    </Link>
-                    {item.submenu && (
-                      <div className="pl-4 space-y-1 mt-1">
-                        {item.submenu.map((sub, idx) => (
-                          <Link
-                            key={idx}
-                            href={sub.href}
-                            className={`block p-2 text-sm transition-colors border-l border-muted-foreground/20 ml-2 ${sub.active ? "text-primary font-bold border-primary" : "text-muted-foreground hover:text-primary"
-                              }`}
-                          >
-                            {sub.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </nav>
-            </div>
+            <AboutSidebar />
           </aside>
 
           {/* Content Area */}

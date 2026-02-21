@@ -20,6 +20,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Base from "@/components/layout/Base";
+import AboutSidebar from "@/components/layout/AboutSidebar";
 
 export default function WhatWeDo() {
   const programs = [
@@ -86,14 +87,7 @@ export default function WhatWeDo() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Sidebar */}
           <aside className="lg:col-span-1">
-            <div className="sticky top-24 space-y-4">
-              <h3 className="text-xl font-bold border-b pb-2">In this section</h3>
-              <nav className="flex flex-col space-y-2">
-                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-                <Link href="/what-we-do" className="text-primary font-bold">What We Do</Link>
-                <Link href="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link>
-              </nav>
-            </div>
+            <AboutSidebar />
           </aside>
 
           {/* Content Area */}

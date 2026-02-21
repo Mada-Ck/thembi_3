@@ -5,6 +5,9 @@ export const Districts: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'name',
@@ -19,6 +22,9 @@ export const TAs: CollectionConfig = {
   slug: 'tas',
   admin: {
     useAsTitle: 'name',
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {
@@ -39,6 +45,9 @@ export const Facilities: CollectionConfig = {
   slug: 'facilities',
   admin: {
     useAsTitle: 'name',
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {

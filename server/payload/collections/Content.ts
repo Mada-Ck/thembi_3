@@ -5,6 +5,9 @@ export const Stories: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
   },
+  access: {
+    read: () => true,
+  },
   hooks: {
     afterChange: [
       async ({ doc, operation, req }) => {
@@ -73,6 +76,9 @@ export const Staff: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
   },
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'name',
@@ -99,6 +105,9 @@ export const Staff: CollectionConfig = {
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: true,
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'alt',

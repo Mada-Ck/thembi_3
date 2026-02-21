@@ -2,6 +2,9 @@ import { GlobalConfig } from 'payload';
 
 export const HeroSlideshow: GlobalConfig = {
   slug: 'hero-slideshow',
+  access: {
+    read: () => true,
+  },
   fields: [
     {
       name: 'slides',

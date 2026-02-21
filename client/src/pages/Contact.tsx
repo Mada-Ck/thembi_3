@@ -88,13 +88,8 @@ export default function Contact() {
 
               {/* Phone */}
               <div className="flex gap-4">
-                <div className="flex-shrink-0">
-                  <div className="flex items-center justify-center h-12 w-12 rounded-lg bg-secondary/10">
-                    <Phone className="h-6 w-6 text-secondary" />
-                  </div>
-                </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Phone</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Phone (Malawi Office)</h3>
                   <p className="text-muted-foreground">
                     <a href="tel:+265123456789" className="hover:text-primary transition-smooth">
                       +265 1 234 5678
@@ -184,7 +179,7 @@ export default function Contact() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold text-foreground mb-2">
-                        Phone Number
+                        Phone Number (International format)
                       </label>
                       <input
                         type="tel"
@@ -192,7 +187,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="+265 1 234 5678"
+                        placeholder="+1 234 567 8900"
                       />
                     </div>
 

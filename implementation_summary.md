@@ -1,6 +1,9 @@
 # The Thembi Project - Full-Stack Implementation Summary
 
 ## Backend: Payload CMS v3
+
+- **Migration tool**: Drizzle ORM is configured for PostgreSQL (dialect updated to match Payload). 
+
 - **Database**: Configured to use PostgreSQL (via `@payloadcms/db-postgres`).
 - **Collections**:
   - **Geography**: Relational hierarchy of Districts -> T.A.s -> Facilities.

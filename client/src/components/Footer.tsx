@@ -12,9 +12,11 @@ export default function Footer() {
           {/* Organization Info */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">T</span>
-              </div>
+              <img
+                src="/assets/images/thembi-logo.png"
+                alt="Thembi Community Initiative Logo"
+                className="h-10 w-auto brightness-0 invert"
+              />
               <h3 className="text-lg font-bold">Thembi</h3>
             </div>
             <p className="text-sm text-background/80 mb-4">
@@ -27,7 +29,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <Phone className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>+265 1 234 5678</span>
+                <span>+265 1 234 5678 (Malawi Office)</span>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="w-4 h-4 mt-1 flex-shrink-0" />

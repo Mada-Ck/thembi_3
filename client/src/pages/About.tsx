@@ -1,6 +1,7 @@
 import { Link } from "wouter";
-import { CheckCircle, Users, Target, Heart, Zap, Shield, HandThumbUp, Globe, BookOpen, Stethoscope, Users2, ShieldCheck, Landmark } from "lucide-react";
+import { CheckCircle, Users, Target, Heart, Zap, Shield, ThumbsUp, Globe, BookOpen, Stethoscope, Users2, ShieldCheck, Landmark } from "lucide-react";
 import Base from "@/components/layout/Base";
+import AboutSidebar from "@/components/layout/AboutSidebar";
 
 export default function About() {
   const values = [
@@ -25,7 +26,7 @@ export default function About() {
       description: "Acting as responsible channels of resources with transparency and accountability.",
     },
     {
-      icon: HandThumbUp,
+      icon: ThumbsUp,
       title: "Control",
       description: "Encouraging communities to take the lead in their development journey.",
     },
@@ -93,16 +94,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Sidebar */}
           <aside className="lg:col-span-1">
-            <div className="sticky top-24 space-y-4">
-              <h3 className="text-xl font-bold border-b pb-2">In this section</h3>
-              <nav className="flex flex-col space-y-2">
-                <Link href="/about" className="text-primary font-bold">About Us</Link>
-                <Link href="/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link>
-                <Link href="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link>
-                <Link href="/board-members" className="text-muted-foreground hover:text-primary transition-colors">Board Members</Link>
-                <Link href="/donors" className="text-muted-foreground hover:text-primary transition-colors">Donors & Supporters</Link>
-              </nav>
-            </div>
+            <AboutSidebar />
           </aside>
 
           {/* Content Area */}

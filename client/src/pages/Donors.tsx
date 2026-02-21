@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "wouter";
 import Base from "@/components/layout/Base";
+import AboutSidebar from "@/components/layout/AboutSidebar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, Globe, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,19 +9,34 @@ import { Button } from "@/components/ui/button";
 const Donors: React.FC = () => {
     const supporters = [
         {
-            title: "Global Health Foundation",
-            description: "Provides essential grants for our HIV/AIDS care programs and medical supplies.",
-            category: "Institutional Partner"
+            title: "Holfman Family",
+            description: "Dedicated supporters of our community health initiatives and youth programs.",
+            category: "Family Partner"
         },
         {
-            title: "Chitipa Community Fund",
-            description: "Supports local initiatives for youth education and primary school literacy programs.",
-            category: "Local Partner"
+            title: "Nicolai Family",
+            description: "Long-standing partners in our mission to provide education and hope to children.",
+            category: "Family Partner"
         },
         {
-            title: "Individual Donors",
-            description: "Countless contributors from around the world who fuel our mission through monthly giving.",
-            category: "Community"
+            title: "Greenwel Street Church",
+            description: "A community of faith committed to transforming lives through social support.",
+            category: "Church Partner"
+        },
+        {
+            title: "Beard Family",
+            description: "Supporting our core programs with passion and commitment to service.",
+            category: "Family Partner"
+        },
+        {
+            title: "Louise Laubscher",
+            description: "An individual donor whose generosity fuels our daily outreach and impact.",
+            category: "Individual Donor"
+        },
+        {
+            title: "Ballygrainey Church",
+            description: "An international partner church providing essential resources for our community work.",
+            category: "Church Partner"
         }
     ];
 
@@ -43,18 +59,7 @@ const Donors: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
                     {/* Sidebar */}
                     <aside className="lg:col-span-1">
-                        <div className="sticky top-24 space-y-4">
-                            <h3 className="text-xl font-bold border-b pb-2">In this section</h3>
-                            <nav className="flex flex-col space-y-2">
-                                <Link href="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-                                <Link href="/what-we-do" className="text-muted-foreground hover:text-primary transition-colors">What We Do</Link>
-                                <Link href="/governance" className="text-muted-foreground hover:text-primary transition-colors">Governance</Link>
-                                <Link href="/board-members" className="text-muted-foreground hover:text-primary transition-colors">Board Members</Link>
-                                <Link href="/board-committees" className="text-muted-foreground hover:text-primary transition-colors">Board Committees</Link>
-                                <Link href="/executive-team" className="text-muted-foreground hover:text-primary transition-colors">Executive Team</Link>
-                                <Link href="/donors" className="text-primary font-bold">Donors & Supporters</Link>
-                            </nav>
-                        </div>
+                        <AboutSidebar />
                     </aside>
 
                     {/* Content Area */}

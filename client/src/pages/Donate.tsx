@@ -7,8 +7,9 @@ import Base from "@/components/layout/Base";
 export default function Donate() {
   const [donationType, setDonationType] = useState<"specific_program" | "general" | "child_sponsorship" | "in_kind">("general");
   const [programType, setProgramType] = useState("health");
-  const [amount, setAmount] = useState(50);
+  const [amount, setAmount] = useState(5000); // Default MWK amount
   const [customAmount, setCustomAmount] = useState("");
+  const [currency, setCurrency] = useState<"MWK" | "USD">("MWK");
   const [isRecurring, setIsRecurring] = useState(false);
   const [interval, setInterval] = useState<"month" | "year">("month");
   const [donorName, setDonorName] = useState("");
@@ -26,7 +27,8 @@ export default function Donate() {
     { value: "youth_empowerment", label: "Youth Empowerment" },
   ];
 
-  const amounts = [25, 50, 100, 250, 500, 1000];
+  const amountsMWK = [5000, 10000, 25000, 50000, 100000, 250000];
+  const amountsUSD = [10, 25, 50, 100, 250, 500];
 
   const finalAmount = customAmount ? parseFloat(customAmount) : amount;
 
@@ -55,16 +57,16 @@ export default function Donate() {
         donorName,
         donorEmail,
         amount: finalAmount,
+        currency,
         donationType,
         programType: donationType === "specific_program" ? programType : undefined,
         isRecurring,
-        interval,
         message: message || undefined,
       });
 
-      if (result.url) {
-        window.open(result.url, "_blank");
-        toast.success("Redirecting to secure checkout...");
+      if (result.checkoutUrl) {
+        window.location.href = result.checkoutUrl;
+        toast.success("Redirecting to secure Paychangu checkout...");
       }
     } catch (error: any) {
       toast.error(error.message || "Failed to create donation");
@@ -114,8 +116,8 @@ export default function Donate() {
                           type="button"
                           onClick={() => setDonationType(option.value as any)}
                           className={`p-4 rounded-lg border-2 transition-smooth text-left font-medium ${donationType === option.value
-                              ? "border-primary bg-primary/10 text-primary"
-                              : "border-border hover:border-primary text-foreground"
+                            ? "border-primary bg-primary/10 text-primary"
+                            : "border-border hover:border-primary text-foreground"
                             }`}
                         >
                           {option.label}
@@ -144,13 +146,39 @@ export default function Donate() {
                     </div>
                   )}
 
+                  {/* Currency Selection */}
+                  <div>
+                    <label className="block text-lg font-semibold text-foreground mb-4">
+                      Choose Currency
+                    </label>
+                    <div className="flex gap-4">
+                      {["MWK", "USD"].map((curr) => (
+                        <button
+                          key={curr}
+                          type="button"
+                          onClick={() => {
+                            setCurrency(curr as any);
+                            setAmount(curr === "MWK" ? 5000 : 50);
+                            setCustomAmount("");
+                          }}
+                          className={`px-6 py-2 rounded-lg border-2 transition-smooth font-bold ${currency === curr
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border hover:border-primary text-foreground"
+                            }`}
+                        >
+                          {curr}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Amount */}
                   <div>
                     <label className="block text-lg font-semibold text-foreground mb-4">
-                      Donation Amount
+                      Donation Amount ({currency})
                     </label>
                     <div className="grid grid-cols-3 gap-3 mb-4">
-                      {amounts.map((amt) => (
+                      {(currency === "MWK" ? amountsMWK : amountsUSD).map((amt) => (
                         <button
                           key={amt}
                           type="button"
@@ -159,11 +187,11 @@ export default function Donate() {
                             setCustomAmount("");
                           }}
                           className={`p-3 rounded-lg border-2 transition-smooth font-semibold ${amount === amt && !customAmount
-                              ? "border-primary bg-primary text-primary-foreground"
-                              : "border-border hover:border-primary text-foreground"
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border hover:border-primary text-foreground"
                             }`}
                         >
-                          ${amt}
+                          {currency === "MWK" ? "K" : "$"}{amt.toLocaleString()}
                         </button>
                       ))}
                     </div>
@@ -241,14 +269,14 @@ export default function Donate() {
                     className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     <Heart className="w-5 h-5" />
-                    {isLoading ? "Processing..." : `Donate $${finalAmount.toFixed(2)}`}
+                    {isLoading ? "Processing..." : `Donate ${currency === "MWK" ? "K" : "$"}${finalAmount.toLocaleString()}`}
                   </button>
 
                   {/* Security Notice */}
                   <div className="p-4 bg-accent/10 rounded-lg flex gap-3">
                     <AlertCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <p className="text-sm text-foreground">
-                      Your donation is secure and processed through Stripe. We never store your credit card information.
+                      Your donation is secure and processed through PayChangu. We never store your payment information.
                     </p>
                   </div>
                 </form>
@@ -292,9 +320,9 @@ export default function Donate() {
               </div>
 
               <div className="bg-secondary/10 rounded-xl border border-secondary/20 p-6">
-                <h3 className="text-lg font-bold text-foreground mb-3">Tax Deductible</h3>
+                <h3 className="text-lg font-bold text-foreground mb-3">Transparency & Accountability</h3>
                 <p className="text-sm text-muted-foreground">
-                  Thembi Community Initiative is a registered non-profit organization. Your donation may be tax-deductible. We'll send you a receipt for your records.
+                  Thembi Community Initiative is a registered non-profit organization in Malawi. While donations are not tax-deductible, we are committed to complete transparency. We'll send you a receipt and regular updates on how your contribution is making a direct impact.
                 </p>
               </div>
 

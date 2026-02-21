@@ -3,7 +3,7 @@ import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
 import { donations } from "../../drizzle/schema";
 import { eq } from "drizzle-orm";
-import { createCheckoutSession, getCheckoutSession, getPaymentIntent } from "../stripe/checkout";
+import { createPaychanguPayment } from "../paychangu/checkout";
 import { TRPCError } from "@trpc/server";
 
 export const donationRouter = router({
@@ -31,31 +31,30 @@ export const donationRouter = router({
     )
     .mutation(async ({ input, ctx }) => {
       try {
-        const origin = ctx.req.headers.origin || "https://thembi.org";
+        const origin = ctx.req.headers.origin || "http://localhost:3000";
 
-        const result = await createCheckoutSession({
+        const result = await createPaychanguPayment({
           userId: ctx.user?.id,
           donorName: input.donorName,
           donorEmail: input.donorEmail,
           amount: input.amount,
-          currency: input.currency,
+          currency: input.currency === "USD" ? "USD" : "MWK",
           donationType: input.donationType,
           programType: input.programType,
           isRecurring: input.isRecurring,
-          interval: input.interval,
           message: input.message,
           origin,
         });
 
         return {
-          sessionId: result.sessionId,
-          url: result.url,
+          checkoutUrl: result.checkoutUrl,
+          reference: result.reference,
         };
       } catch (error: any) {
-        console.error("[Donation] Error creating checkout session:", error);
+        console.error("[Donation] Error creating Paychangu payment:", error);
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: error.message || "Failed to create checkout session",
+          message: error.message || "Failed to initiate payment",
         });
       }
     }),

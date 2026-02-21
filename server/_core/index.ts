@@ -9,11 +9,10 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import payload from 'payload';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import config from '../../payload.config';
+import { handlePaychanguWebhook } from '../paychangu/webhook';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+console.log(`[Database] URL Detected: ${process.env.DATABASE_URL ? "YES" : "NO"}`);
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -40,10 +39,11 @@ async function startServer() {
 
   // Initialize Payload
   await payload.init({
-    secret: process.env.PAYLOAD_SECRET || 'YOUR_SECRET_HERE',
+    config,
     express: app,
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
+      console.log(`[Paychangu] Configured: ${process.env.PAYCHANGU_SECRET_KEY ? "YES" : "NO"}`);
     },
   });
 
@@ -54,6 +54,8 @@ async function startServer() {
   registerOAuthRoutes(app);
   // Chat API with streaming and tool calling
   registerChatRoutes(app);
+  // Paychangu webhook (must be before body parser for raw body if needed, but Paychangu works with JSON)
+  app.post("/api/webhooks/paychangu", express.json(), handlePaychanguWebhook);
   // tRPC API
   app.use(
     "/api/trpc",

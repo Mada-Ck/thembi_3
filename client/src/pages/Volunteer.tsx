@@ -162,217 +162,232 @@ export default function Volunteer() {
       </section>
 
       {/* Volunteer Form */}
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-16 md:py-32 bg-muted/30">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-card rounded-xl border border-border p-8">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Volunteer Application Form</h2>
+            {/* Paper-Style Form Container */}
+            <div className="relative">
+              {/* Stacked Paper Effect Decoration */}
+              <div className="absolute inset-0 bg-white/40 rounded-[2.5rem] rotate-1 translate-y-2 shadow-sm pointer-events-none" />
+              <div className="absolute inset-0 bg-white/60 rounded-[2.5rem] -rotate-1 translate-y-1 shadow-md pointer-events-none" />
 
-              <form onSubmit={handleSubmit} className="space-y-8">
-                {/* Personal Information */}
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Personal Information</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        First Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="John"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Last Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Doe"
-                        required
-                      />
-                    </div>
+              <div className="relative bg-[#fcfaf7] rounded-[2.5rem] border border-[#e6e1d9] p-8 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden">
+                {/* Subtle Paper Texture Overlay */}
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')]" />
+
+                <div className="relative z-10">
+                  <div className="mb-12 text-center">
+                    <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-4">Volunteer Application</h2>
+                    <p className="text-muted-foreground text-lg italic">"Every hand helping, every life changing."</p>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="john@example.com"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="+265 1 234 5678"
-                      />
-                    </div>
-                  </div>
+                  <form onSubmit={handleSubmit} className="space-y-12">
+                    {/* Personal Information */}
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="h-px flex-1 bg-border" />
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-primary">Personal Information</h3>
+                        <div className="h-px flex-1 bg-border" />
+                      </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        City
-                      </label>
-                      <input
-                        type="text"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Chitipa"
-                      />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">First Name *</label>
+                          <input
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="John"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Last Name *</label>
+                          <input
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="Doe"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Email Address *</label>
+                          <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="john@example.com"
+                            required
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Phone (incl. country code)</label>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="+1 234 567 8900"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">City</label>
+                          <input
+                            type="text"
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="Your City"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Country</label>
+                          <input
+                            type="text"
+                            name="country"
+                            value={formData.country}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="e.g. Malawi, USA, UK"
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Country
-                      </label>
-                      <input
-                        type="text"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Malawi"
-                      />
+
+                    {/* Skills & Interests */}
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="h-px flex-1 bg-border" />
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-primary">Skills & Interests</h3>
+                        <div className="h-px flex-1 bg-border" />
+                      </div>
+
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">What skills do you bring?</label>
+                        <div className="flex flex-wrap gap-3">
+                          {skillOptions.map((skill) => (
+                            <button
+                              key={skill}
+                              type="button"
+                              onClick={() => toggleSkill(skill)}
+                              className={`px-4 py-2 rounded-xl border transition-smooth font-medium text-sm ${formData.skills.includes(skill)
+                                ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
+                                : "bg-white text-foreground border-border hover:border-primary shadow-sm"
+                                }`}
+                            >
+                              {skill}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Which programs interest you?</label>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {interestOptions.map((interest) => (
+                            <button
+                              key={interest}
+                              type="button"
+                              onClick={() => toggleInterest(interest)}
+                              className={`px-6 py-4 rounded-2xl border transition-smooth font-medium text-sm text-left ${formData.interests.includes(interest)
+                                ? "bg-secondary text-secondary-foreground border-secondary shadow-lg shadow-secondary/20"
+                                : "bg-white text-foreground border-border hover:border-secondary shadow-sm"
+                                }`}
+                            >
+                              {interest}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+
+                    {/* Availability */}
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="h-px flex-1 bg-border" />
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-primary">Availability</h3>
+                        <div className="h-px flex-1 bg-border" />
+                      </div>
+
+                      <select
+                        name="availability"
+                        value={formData.availability}
+                        onChange={handleChange}
+                        className="w-full px-4 py-4 bg-white border border-border rounded-2xl focus:border-primary focus:outline-none transition-smooth text-lg shadow-sm"
+                      >
+                        <option value="flexible">Flexible Schedule</option>
+                        <option value="weekends">Weekends Only</option>
+                        <option value="evenings">Evenings Only</option>
+                        <option value="fulltime">Full-time</option>
+                        <option value="seasonal">Seasonal</option>
+                      </select>
+                    </div>
+
+                    {/* Emergency Contact */}
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="h-px flex-1 bg-border" />
+                        <h3 className="text-sm font-bold uppercase tracking-widest text-primary">Emergency Contact</h3>
+                        <div className="h-px flex-1 bg-border" />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Contact Name</label>
+                          <input
+                            type="text"
+                            name="emergencyContact"
+                            value={formData.emergencyContact}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="Name"
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-xs font-bold uppercase tracking-tight text-muted-foreground">Emergency Phone (incl. country code)</label>
+                          <input
+                            type="tel"
+                            name="emergencyPhone"
+                            value={formData.emergencyPhone}
+                            onChange={handleChange}
+                            className="w-full px-0 py-3 bg-transparent border-b border-border focus:border-primary focus:outline-none transition-smooth text-lg"
+                            placeholder="+1 234 567 8900"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="pt-8">
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full px-8 py-5 bg-primary text-primary-foreground rounded-[2rem] font-bold text-xl hover:bg-primary/90 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-primary/20"
+                      >
+                        {isLoading ? "Submitting..." : "Send Application"}
+                      </button>
+                      <p className="mt-6 text-sm text-muted-foreground text-center italic">
+                        By submitting, you agree to join our community of change-makers.
+                      </p>
+                    </div>
+                  </form>
                 </div>
-
-                {/* Skills & Interests */}
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Skills & Interests</h3>
-
-                  <div className="mb-6">
-                    <label className="block text-sm font-semibold text-foreground mb-3">
-                      What skills do you have?
-                    </label>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {skillOptions.map((skill) => (
-                        <button
-                          key={skill}
-                          type="button"
-                          onClick={() => toggleSkill(skill)}
-                          className={`px-4 py-2 rounded-lg border-2 transition-smooth font-medium text-sm ${formData.skills.includes(skill)
-                              ? "border-primary bg-primary/10 text-primary"
-                              : "border-border hover:border-primary text-foreground"
-                            }`}
-                        >
-                          {skill}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-3">
-                      Which programs interest you?
-                    </label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {interestOptions.map((interest) => (
-                        <button
-                          key={interest}
-                          type="button"
-                          onClick={() => toggleInterest(interest)}
-                          className={`px-4 py-2 rounded-lg border-2 transition-smooth font-medium text-sm text-left ${formData.interests.includes(interest)
-                              ? "border-secondary bg-secondary/10 text-secondary"
-                              : "border-border hover:border-secondary text-foreground"
-                            }`}
-                        >
-                          {interest}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Availability */}
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Availability</h3>
-                  <select
-                    name="availability"
-                    value={formData.availability}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  >
-                    <option value="flexible">Flexible Schedule</option>
-                    <option value="weekends">Weekends Only</option>
-                    <option value="evenings">Evenings Only</option>
-                    <option value="fulltime">Full-time</option>
-                    <option value="seasonal">Seasonal</option>
-                  </select>
-                </div>
-
-                {/* Emergency Contact */}
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Emergency Contact</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Emergency Contact Name
-                      </label>
-                      <input
-                        type="text"
-                        name="emergencyContact"
-                        value={formData.emergencyContact}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="Contact name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        Emergency Contact Phone
-                      </label>
-                      <input
-                        type="tel"
-                        name="emergencyPhone"
-                        value={formData.emergencyPhone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                        placeholder="+265 1 234 5678"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="w-full px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isLoading ? "Submitting..." : "Submit Application"}
-                </button>
-
-                <p className="text-sm text-muted-foreground text-center">
-                  We'll review your application and contact you within 3-5 business days.
-                </p>
-              </form>
+              </div>
             </div>
           </div>
         </div>

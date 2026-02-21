@@ -1,92 +1,166 @@
 import React from 'react';
 import { Link } from 'wouter';
 import Base from '../../components/layout/Base';
+import ServicesSidebar from '../../components/layout/ServicesSidebar';
+import { cn } from "@/lib/utils";
+import { HeartPulse, Search, ShieldCheck, Microscope, Utensils, Users, Info, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const HivServices: React.FC = () => {
+    const services = [
+        {
+            icon: Microscope,
+            title: "Testing & Counseling",
+            description: "Confidential, free HIV testing with professional pre and post-test support.",
+            color: "bg-red-500/10 text-red-600"
+        },
+        {
+            icon: ShieldCheck,
+            title: "Prevention Education",
+            description: "Workshops and outreach to promote safe practices and reduce transmission.",
+            color: "bg-green-500/10 text-green-600"
+        },
+        {
+            icon: Users,
+            title: "Adherence Support",
+            description: "Peer-led support groups to help individuals maintain their ART regimens.",
+            color: "bg-blue-500/10 text-blue-600"
+        },
+        {
+            icon: Utensils,
+            title: "Nutritional Support",
+            description: "Food packages and counseling to maintain health and strengthen the immune system.",
+            color: "bg-orange-500/10 text-orange-600"
+        }
+    ];
+
     return (
         <Base>
-            <main className="container mx-auto px-4 py-8">
-                <section className="about-hero">
-                    <img
-                        src="/assets/images/hiv-services-hero.jpg"
-                        alt="HIV Services Hero Image"
-                        className="about-hero-image"
-                        loading="lazy"
-                    />
-                    <div className="about-hero-text animate-hero">
-                        <h1>HIV Community Services</h1>
-                        <p>Support for Individuals and Communities Affected by HIV.</p>
-                    </div>
-                </section>
-
-                <div className="get-help-content grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-                    <aside className="about-sidebar col-span-1" role="navigation" aria-label="Get Help Navigation">
-                        <h3 className="font-bold text-xl mb-4">In this section</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="/child-clinic" className="hover:text-primary">Child Clinic</Link></li>
-                            <li><Link href="/hiv-services" className="text-primary font-bold">HIV Community Services</Link></li>
-                            <li><Link href="/teen-club" className="hover:text-primary">Teen Club</Link></li>
-                            <li><Link href="/pmtct" className="hover:text-primary">PMTCT & HIV+ Women</Link></li>
-                        </ul>
+            <div className="container mx-auto px-4 py-12">
+                <div className="flex flex-col lg:flex-row gap-12">
+                    {/* Sidebar */}
+                    <aside className="w-full lg:w-1/4">
+                        <ServicesSidebar />
                     </aside>
 
-                    <section className="main-content col-span-1 md:col-span-3">
-                        <h2 className="text-3xl font-bold mb-4">HIV Community Services</h2>
-                        <p className="mb-4 text-gray-700">The Thembi Community Initiative provides a range of services to support individuals and communities affected by HIV. We are committed to reducing stigma, promoting prevention, and ensuring access to care and treatment for all.</p>
+                    {/* Main Content */}
+                    <div className="flex-1 space-y-16">
+                        {/* Hero Section */}
+                        <section className="relative rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-red-600 to-red-800 text-white p-8 md:p-16 shadow-2xl">
+                            <div className="relative z-10 max-w-2xl">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-bold mb-6 border border-white/20 uppercase tracking-[0.2em]">
+                                    <HeartPulse className="w-3 h-3" />
+                                    Community Care
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[1.1]">HIV Community <br /><span className="text-white/80">Services</span></h1>
+                                <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                                    Comprehensive support focused on reducing stigma, promoting prevention, and ensuring dignified care for everyone.
+                                </p>
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/contact">
+                                        <Button size="lg" variant="secondary" className="font-bold px-8 rounded-full shadow-lg shadow-black/10">Get Support</Button>
+                                    </Link>
+                                    <Link href="/hiv-toolkit">
+                                        <Button size="lg" variant="outline" className="font-bold px-8 rounded-full border-white/30 text-white hover:bg-white/10">Access Toolkit</Button>
+                                    </Link>
+                                </div>
+                            </div>
+                            {/* Decorative background shapes */}
+                            <div className="absolute -top-12 -right-12 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+                            <div className="absolute bottom-0 right-0 w-1/2 h-full bg-black/5 -skew-x-12 translate-x-1/4"></div>
+                        </section>
 
-                        <h3 className="text-2xl font-semibold mb-3">Our Services Include:</h3>
-                        <ul className="list-disc pl-5 space-y-2 mb-6 text-gray-700">
-                            <li><strong>HIV Testing and Counseling:</strong> Confidential and free HIV testing services with pre- and post-test counseling.</li>
-                            <li><strong>Prevention Education:</strong> Workshops and outreach programs to promote safe sex practices and prevent the spread of HIV.</li>
-                            <li><strong>ART Adherence Support:</strong> Counseling and support groups to help individuals adhere to their antiretroviral therapy (ART) regimens.</li>
-                            <li><strong>Support Groups:</strong> Peer support groups for people living with HIV to share experiences and build community.</li>
-                            <li><strong>Nutritional Support:</strong> Food packages and nutritional counseling to help individuals maintain a healthy diet.</li>
-                            <li><strong>Linkage to Care:</strong> Assistance with connecting to medical care and social services.</li>
-                            <li><strong>Stigma Reduction Programs:</strong> Initiatives to combat stigma and discrimination against people living with HIV.</li>
-                        </ul>
+                        {/* Intro Section */}
+                        <section className="max-w-4xl space-y-6">
+                            <h2 className="text-3xl font-bold">A Foundation of Dignity</h2>
+                            <p className="text-xl text-muted-foreground leading-relaxed">
+                                Our HIV programs go beyond medicine. We build communities of support, combat discrimination, and provide the essential nutritional and social resources needed for a healthy, fulfilling life.
+                            </p>
+                        </section>
 
-                        <div className="info-card-row grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <div className="info-card border p-4 rounded-lg bg-white shadow-sm">
+                        {/* Services Grid */}
+                        <section className="space-y-8">
+                            <div className="flex items-end justify-between border-b pb-4">
+                                <h2 className="text-3xl font-bold">Our Impact</h2>
+                                <p className="text-sm text-muted-foreground hidden md:block italic">Confidential & Compassionate</p>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {services.map((service, index) => (
+                                    <Card key={index} className="border-none bg-muted/30 hover:bg-muted/50 transition-colors group cursor-default">
+                                        <CardContent className="p-8 flex gap-6">
+                                            <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm", service.color)}>
+                                                <service.icon className="w-7 h-7" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <h3 className="text-xl font-bold">{service.title}</h3>
+                                                <p className="text-muted-foreground leading-relaxed text-sm">
+                                                    {service.description}
+                                                </p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </section>
+
+                        {/* Linkage Section */}
+                        <section className="grid md:grid-cols-2 gap-12 items-center">
+                            <div className="order-2 md:order-1 relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl">
                                 <img
                                     src="/assets/images/hiv-testing.jpg"
-                                    alt="HIV Testing"
-                                    loading="lazy"
-                                    className="w-full h-48 object-cover rounded-md mb-4"
+                                    alt="Testing Services"
+                                    className="w-full h-full object-cover"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=800';
+                                    }}
                                 />
-                                <h3 className="font-bold text-lg text-primary">Confidential HIV Testing</h3>
-                                <p className="text-gray-600">Know your status. Get tested in a safe and confidential environment.</p>
+                                <div className="absolute inset-0 bg-gradient-to-t from-red-600/20 to-transparent"></div>
                             </div>
-                            <div className="info-card border p-4 rounded-lg bg-white shadow-sm">
-                                <img
-                                    src="/assets/images/hiv-support-group.jpg"
-                                    alt="HIV Support Group"
-                                    loading="lazy"
-                                    className="w-full h-48 object-cover rounded-md mb-4"
-                                />
-                                <h3 className="font-bold text-lg text-primary">Support and Community</h3>
-                                <p className="text-gray-600">Connect with others and find strength in shared experiences.</p>
+                            <div className="order-1 md:order-2 space-y-6">
+                                <h2 className="text-3xl font-bold">Who We Serve</h2>
+                                <p className="text-muted-foreground leading-relaxed">
+                                    All community members are welcome. We prioritize those most in need of specialized care and advocacy.
+                                </p>
+                                <div className="space-y-4">
+                                    {[
+                                        "Individuals living with HIV/AIDS",
+                                        "At-risk youth and vulnerable women",
+                                        "Marginalized community groups",
+                                        "Families affected by illness"
+                                    ].map((text, i) => (
+                                        <div key={i} className="flex items-center gap-3">
+                                            <CheckCircle2 className="w-5 h-5 text-red-600" />
+                                            <span className="text-sm font-medium">{text}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                        </section>
 
-                        <h3 className="text-2xl font-semibold mb-3">Who Can Access Our Services?</h3>
-                        <p className="mb-4 text-gray-700">Our HIV community services are available to all members of the Thembi community, regardless of their HIV status. We prioritize serving vulnerable populations, including:</p>
-                        <ul className="list-disc pl-10 space-y-1 mb-6 text-gray-700">
-                            <li>People living with HIV</li>
-                            <li>Youth</li>
-                            <li>Women</li>
-                            <li>Marginalized communities</li>
-                        </ul>
-
-                        <h3 className="text-2xl font-semibold mb-3">How to Access Services</h3>
-                        <p className="mb-4 text-gray-700">To access our HIV community services, please visit our office at [Address] or call us at [Phone Number]. You can also send us an email at [Email Address]. All services are confidential and provided free of charge.</p>
-                        <Link href="/contact" className="inline-block bg-primary text-white px-6 py-2 rounded link-button mb-6 font-bold hover:bg-primary/90 transition">Contact Us for More Information</Link>
-                        <p className="text-gray-700">Learn more about our <Link href="/pmtct" className="text-primary hover:underline font-semibold">PMTCT & HIV Women programs</Link>.</p>
-                    </section>
+                        {/* CTA Section */}
+                        <section className="bg-muted rounded-[3rem] p-8 md:p-12 border border-border flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+                            <div className="flex-1 space-y-4 text-center md:text-left relative z-10">
+                                <h2 className="text-3xl font-bold">Break the Silence, End the Stigma.</h2>
+                                <p className="text-muted-foreground">
+                                    Our doors are open for everyone. Services are 100% confidential and provided free of charge to those in need.
+                                </p>
+                            </div>
+                            <div className="shrink-0 flex flex-col gap-4 w-full md:w-auto relative z-10">
+                                <Link href="/contact">
+                                    <Button size="lg" className="w-full md:w-auto font-bold px-12 rounded-full py-6 bg-red-600 hover:bg-red-700">Find Help Now</Button>
+                                </Link>
+                                <div className="text-center text-xs font-bold text-red-600 flex items-center justify-center gap-2">
+                                    <ShieldCheck className="w-4 h-4" /> Secure & Anonymous
+                                </div>
+                            </div>
+                            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-red-600/5 rounded-full blur-3xl"></div>
+                        </section>
+                    </div>
                 </div>
-            </main>
+            </div>
         </Base>
     );
 };
 
 export default HivServices;
-

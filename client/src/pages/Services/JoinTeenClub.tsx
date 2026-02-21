@@ -1,88 +1,113 @@
 import React from 'react';
 import { Link } from 'wouter';
 import Base from '../../components/layout/Base';
+import ServicesSidebar from '../../components/layout/ServicesSidebar';
+import { cn } from "@/lib/utils";
+import { Users, Star, Gift, BookOpen, Heart, MessageCircle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
 const JoinTeenClub: React.FC = () => {
+    const benefits = [
+        {
+            icon: BookOpen,
+            title: "Workshops",
+            description: "Leadership, communication, and life skills to build a bright future.",
+            color: "bg-blue-500/10 text-blue-600"
+        },
+        {
+            icon: Heart,
+            title: "Peer Support",
+            description: "A safe space to connect with friends who truly understand you.",
+            color: "bg-pink-500/10 text-pink-600"
+        },
+        {
+            icon: Star,
+            title: "Mentorship",
+            description: "Guidance from positive adult role models to help you navigate life.",
+            color: "bg-yellow-500/10 text-yellow-600"
+        },
+        {
+            icon: Gift,
+            title: "Social Events",
+            description: "Movie nights, games, and community outings full of joy and laughter.",
+            color: "bg-purple-500/10 text-purple-600"
+        }
+    ];
+
     return (
         <Base>
-            <main className="container mx-auto px-4 py-8">
-                <section className="about-hero">
-                    <img
-                        src="/assets/images/teen-club-hero.jpg"
-                        alt="Join Teen Club Hero Image"
-                        className="about-hero-image"
-                        loading="lazy"
-                    />
-                    <div className="about-hero-text animate-hero">
-                        <h1>Join Teen Club</h1>
-                        <p>Connect, Learn, and Grow with TCI.</p>
-                    </div>
-                </section>
-
-                <div className="get-help-content grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-                    <aside className="about-sidebar col-span-1" role="navigation" aria-label="Get Help Navigation">
-                        <h3 className="font-bold text-xl mb-4">In this section</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="/child-clinic" className="hover:text-primary">Child Clinic</Link></li>
-                            <li><Link href="/hiv-services" className="hover:text-primary">HIV Community Services</Link></li>
-                            <li><Link href="/teen-club" className="text-primary font-bold">Teen Club</Link></li>
-                            <li><Link href="/pmtct" className="hover:text-primary">PMTCT & HIV+ Women</Link></li>
-                        </ul>
+            <div className="container mx-auto px-4 py-12">
+                <div className="flex flex-col lg:flex-row gap-12">
+                    {/* Sidebar */}
+                    <aside className="w-full lg:w-1/4">
+                        <ServicesSidebar />
                     </aside>
 
-                    <section className="main-content col-span-1 md:col-span-3">
-                        <h2 className="text-3xl font-bold mb-4">Join the TCI Teen Club!</h2>
-                        <p className="mb-4 text-gray-700">The Thembi Community Initiative Teen Club is a safe and supportive space for teenagers in our community to connect with peers, develop valuable life skills, and access resources that help them thrive. We offer a variety of activities and programs designed to empower teens and help them reach their full potential.</p>
-
-                        <h3 className="text-2xl font-semibold mb-3">What We Offer</h3>
-                        <ul className="list-disc pl-5 space-y-2 mb-6 text-gray-700">
-                            <li><strong>Workshops:</strong> Attend workshops on topics like leadership, communication, financial literacy, and healthy relationships.</li>
-                            <li><strong>Mentorship:</strong> Get paired with a positive adult role model who can provide guidance and support.</li>
-                            <li><strong>Social Events:</strong> Participate in fun social events, including movie nights, game nights, and community outings.</li>
-                            <li><strong>Community Service Projects:</strong> Give back to the community through meaningful volunteer opportunities.</li>
-                            <li><strong>Educational Support:</strong> Access tutoring, study groups, and resources to help you succeed in school.</li>
-                            <li><strong>Guest Speakers:</strong> Hear from inspiring guest speakers who share their experiences and offer valuable advice.</li>
-                        </ul>
-
-                        <div className="info-card-row grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                            <div className="info-card border p-4 rounded-lg bg-white shadow-sm">
-                                <img
-                                    src="/assets/images/teen-club-activities.jpg"
-                                    alt="Teen Club Activities"
-                                    loading="lazy"
-                                    className="w-full h-48 object-cover rounded-md mb-4"
-                                />
-                                <h3 className="font-bold text-lg text-primary">Fun Activities</h3>
-                                <p className="text-gray-600">We have a wide variety of activities to suit every interest!</p>
+                    {/* Main Content */}
+                    <div className="flex-1 space-y-16">
+                        {/* Hero Section */}
+                        <section className="relative rounded-[2.5rem] overflow-hidden bg-primary text-primary-foreground p-8 md:p-16 shadow-2xl">
+                            <div className="relative z-10 max-w-2xl">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-[10px] font-bold mb-6 border border-white/20 uppercase tracking-[0.2em]">
+                                    <Users className="w-3 h-3" />
+                                    TCI Youth Community
+                                </div>
+                                <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-[1.1]">Join the <span className="text-secondary">Teen Club!</span></h1>
+                                <p className="text-primary-foreground/80 text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
+                                    A vibrant, supportive space for teenagers to connect, learn, and grow together in rural Chitipa.
+                                </p>
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/teen-club-junior">
+                                        <Button size="lg" variant="secondary" className="font-bold px-8 rounded-full shadow-lg shadow-black/10">Junior (9-14)</Button>
+                                    </Link>
+                                    <Link href="/teen-club-senior">
+                                        <Button size="lg" variant="outline" className="font-bold px-8 rounded-full border-white/30 text-white hover:bg-white/10">Senior (14-19)</Button>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="info-card border p-4 rounded-lg bg-white shadow-sm">
-                                <img
-                                    src="/assets/images/teen-club-support.jpg"
-                                    alt="Teen Club Support"
-                                    loading="lazy"
-                                    className="w-full h-48 object-cover rounded-md mb-4"
-                                />
-                                <h3 className="font-bold text-lg text-primary">Peer Support</h3>
-                                <p className="text-gray-600">Connect with friends who understand what you're going through.</p>
+                            {/* Abstract background shapes */}
+                            <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-[-20deg] translate-x-1/3"></div>
+                            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/20 rounded-full blur-3xl"></div>
+                        </section>
+
+                        {/* Intro Section */}
+                        <section className="max-w-4xl">
+                            <h2 className="text-3xl font-bold mb-6">Safe, Support, and Fun</h2>
+                            <p className="text-xl text-muted-foreground leading-relaxed">
+                                The Thembi Community Initiative Teen Club is more than just a club—it's a <strong>movement of empowered youth</strong>. We provide a sanctuary where you can truly be yourself, share your experiences, and build the future you deserve.
+                            </p>
+                        </section>
+
+                        {/* What We Offer Grid */}
+                        <section className="space-y-8">
+                            <div className="flex items-end justify-between border-b pb-4">
+                                <h2 className="text-3xl font-bold">Why Join Us?</h2>
+                                <p className="text-sm text-muted-foreground hidden md:block italic">Empowering youth since 2011</p>
                             </div>
-                        </div>
-
-                        <h3 className="text-2xl font-semibold mb-3">Who Can Join?</h3>
-                        <p className="mb-4 text-gray-700">The TCI Teen Club is open to all teenagers aged 13-19 who live in the Thembi community. We welcome teens from all backgrounds and experiences.</p>
-
-                        <h3 className="text-2xl font-semibold mb-3">How to Join</h3>
-                        <p className="mb-4 text-gray-700">Joining the Teen Club is easy! Simply fill out our online registration form or visit the TCI office to register in person. There is a small annual membership fee to help cover the cost of activities and resources. Scholarships are available for those who need financial assistance. Contact us for more information.</p>
-                        <Link href="/contact" className="inline-block bg-primary text-white px-6 py-2 rounded link-button mb-6 font-bold hover:bg-primary/90 transition">Register Online Now</Link>
-
-                        <h3 className="text-2xl font-semibold mb-3">Contact Us</h3>
-                        <p className="mb-4 text-gray-700">Have questions? Contact our Teen Club Coordinator at [Phone Number] or [Email Address].</p>
-                        <p className="text-gray-700">Learn more about our <Link href="/child-clinic" className="text-primary hover:underline font-semibold">Child Clinic services</Link> or our <Link href="/hiv-services" className="text-primary hover:underline font-semibold">HIV Community Services</Link>.</p>
-                    </section>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {benefits.map((benefit, index) => (
+                                    <Card key={index} className="border-none bg-muted/30 hover:bg-muted/50 transition-colors group cursor-default">
+                                        <CardContent className="p-8 flex gap-6">
+                                            <div className={cn("w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-sm", benefit.color)}>
+                                                <benefit.icon className="w-7 h-7" />
+                                            </div>
+                                            <div className="space-y-2">
+                                                <h3 className="text-xl font-bold">{benefit.title}</h3>
+                                                <p className="text-muted-foreground leading-relaxed text-sm">
+                                                    {benefit.description}
+                                                </p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
                 </div>
-            </main>
+            </div>
         </Base>
     );
 };
 
 export default JoinTeenClub;
-
